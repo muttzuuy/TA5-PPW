@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap');
+
+:root {
+    
+    --striped-bg-color-1: #eaf4ff; 
+    --striped-bg-color-2: #f4fdff; 
+    
+    --calculator-body-bg: #ffffff; 
+    --calculator-border-color: #b3d9ff; 
+
+    --ear-color: #3d3d3d;
+    
+    --display-bg: #cce0ff;       
+    --display-text: #004d99;     
+    
+    --number-key-bg: #e6f0ff; 
+    --number-key-text: #4d79b3; 
+
+    --control-key-bg: #ffeded; 
+    --control-key-text: #e65c5c; 
+
+    --operator-key-bg: #ffcce5; 
+    --operator-key-text: #b34d90;
+
+    --equals-key-bg: #007acc; 
+    --equals-key-text: #ffffff; 
+
+    --panel-bg: #ffffff;         
+    --history-title-color: #007acc; 
+    
+    
+    --display-font-size: 3.8rem;
+    --operation-font-size: 1.1rem; 
+    --button-font-size: 1.3rem;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Fredoka', cursive;
+}
+
+body { background: transparent; }
+
+.striped-bg {
+    background-image: linear-gradient(45deg, var(--striped-bg-color-1) 25%, transparent 25%, transparent 75%, var(--striped-bg-color-1) 75%, var(--striped-bg-color-1)),
+                      linear-gradient(45deg, var(--striped-bg-color-1) 25%, transparent 25%, transparent 75%, var(--striped-bg-color-1) 75%, var(--striped-bg-color-1));
+    background-size: 80px 80px; 
+    background-position: 0 0, 40px 40px; 
+}
+
+.cute-calculator-wrapper {
+    position: relative;
+    max-width: 450px;
+    background: var(--calculator-body-bg) !important;
+    border: 4px solid var(--calculator-border-color) !important;
+    border-radius: 45px !important; 
+    padding: 35px !important; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.cute-ear {
+    position: absolute;
+    width: 70px;
+    height: 50px;
+    background: var(--ear-color); 
+    border-radius: 50% 50% 0 0; 
+    top: -25px; 
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.cute-ear.left-ear { left: 15%; transform: rotate(-15deg); }
+.cute-ear.right-ear { right: 15%; transform: rotate(15deg); }
+
+
+.cute-display {
+    background-color: var(--display-bg) !important;
+    color: var(--display-text) !important;
+    padding: 20px !important; 
+    border-radius: 18px !important;
+    border: 3px solid var(--calculator-border-color) !important;
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.15); 
+}
+.operation-display { 
+    font-size: var(--operation-font-size); 
+    color: #4d79b3; 
+}
+.main-display { 
+    font-size: var(--display-font-size); 
+    font-weight: 700; 
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px; 
+}
+
+.cute-btn-round {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50% !important; 
+    font-size: var(--button-font-size) !important; 
+    font-weight: 700 !important;
+    border: 3px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    transition: all 0.1s ease-in-out;
+    padding: 0 !important;
+}
+
+.cute-btn-round:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.number-btn {
+    background-color: var(--number-key-bg) !important;
+    color: var(--number-key-text) !important;
+    border-color: #c0d8f0 !important; 
+}
+
+.control-btn, .sci-btn {
+    background-color: var(--control-key-bg) !important;
+    color: var(--control-key-text) !important;
+    border-color: #ffe0e0 !important;
+    font-size: 1.1rem !important;
+}
+
+.operator-btn {
+    background-color: var(--operator-key-bg) !important;
+    color: var(--operator-key-text) !important;
+    border-color: #ffb8d9 !important;
+}
+
+.equals-btn {
+    background-color: var(--equals-key-bg) !important;
+    color: var(--equals-key-text) !important;
+    font-size: 2rem !important;
+    border-color: #005a99 !important;
+}
+
+.memory-status {
+    background-color: var(--control-key-bg) !important;
+    color: var(--control-key-text) !important;
+    border-radius: 30px !important;
+    grid-column: span 1; 
+    font-size: 0.8rem !important;
+    border: 2px dashed #e0e0f0 !important;
+    cursor: default;
+    height: 60px;
+}
+.memory-status span { font-weight: 700; }
+
+
+.buttons-grid .zero {
+    grid-column: span 2;
+    width: auto; 
+    border-radius: 30px !important; 
+    font-size: 1.5rem !important;
+}
+.buttons-grid .equals-btn {
+    grid-column: span 2; 
+    width: auto;
+    border-radius: 30px !important; 
+}
+
+.cute-history-panel {
+    background-color: var(--panel-bg) !important;
+    border-radius: 20px !important;
+    border: 2px solid var(--calculator-border-color) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.cute-title {
+    color: var(--history-title-color) !important;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border-bottom: 2px dashed #e0e0f0 !important;
+}
+
+.cute-list {
+    max-height: 120px; 
+    overflow-y: auto;
+    font-size: 1rem; 
+}
+
+
+@media (max-width: 576px) {
+
+    .cute-calculator-wrapper { 
+        padding: 15px !important;
+        max-width: 95% !important;
+        border-radius: 30px !important;
+    }
+    .cute-ear { top: -15px; width: 50px; height: 35px; } 
+    
+
+    .cute-display { padding: 10px !important; border-radius: 15px !important; }
+    :root { --display-font-size: 2.5rem; } 
+
+
+    .buttons-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .cute-btn-round { width: 60px; height: 60px; font-size: 1.1rem !important; border-radius: 50% !important; }
+
+  
+    .buttons-grid > *:nth-child(5n):not(.memory-status) { display: none; }
+    
+  
+    .buttons-grid .zero { grid-column: span 2 !important; width: auto !important; }
+    .buttons-grid .equals-btn { grid-column: span 2 !important; width: auto !important; font-size: 1.5rem !important; }
+    
+    
+    .memory-btn { grid-column: span 1 !important; }
+    .memory-status { display: none !important; } 
+    
+  
+    .cute-history-panel { margin-top: 15px !important; padding: 15px !important; }
+    .cute-list { font-size: 0.8rem; }
+}
